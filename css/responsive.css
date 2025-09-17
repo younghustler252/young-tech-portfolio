@@ -1,0 +1,41 @@
+/* Mobile-First Design - Default */
+@media (max-width: 768px) {
+    header nav ul li a{
+        display: none;
+        color: gold;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Hero Section Title & Subtitle Adjustments */
+    .hero-title {
+        font-size: 4.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: row;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .contact-buttons {
+        flex-direction: row;
+  }
+}
+
+
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
