@@ -1,5 +1,5 @@
-@import url('./css/animation.css');
 @import url('./css/responsive.css');
+@import url('./css/animation.css');
 
 /* --global reset */
 * {
@@ -75,7 +75,11 @@ nav ul li a:hover {
     color: #2d3748;
     margin-bottom: 1.5rem;
 }
-
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 1.7rem;
+    }
+}
 .hero-subtitle {
     font-size: 1.25rem;
     color: #4a5568;
@@ -416,5 +420,7 @@ nav ul li a:hover {
   gap: 1.5rem;
   align-items: center;
   justify-content: center;
+ 
 }
+
 
