@@ -1,0 +1,27 @@
+/* Mobile-First Design - Default */
+@media (max-width: 768px) {
+    h2{
+        font-size: 1.2rem;
+    }
+    header nav ul li a{
+        display: none;
+        color: gold;
+    }
+    
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+    .contact-buttons {
+        flex-direction: column;
+    }
+    .contact-title{
+        font-size: 1.5rem;
+    }
+        
+    
+}
