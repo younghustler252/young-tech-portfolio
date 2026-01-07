@@ -9,7 +9,7 @@ export default function ProjectsSection() {
 	const [currentImage, setCurrentImage] = useState<Record<number, number>>({})
 
 	const handleNextImage = (projectIndex: number) => {
-		setCurrentImage((prev) => ({
+		setCurrentImage(prev => ({
 			...prev,
 			[projectIndex]:
 				((prev[projectIndex] ?? 0) + 1) %
@@ -18,7 +18,7 @@ export default function ProjectsSection() {
 	}
 
 	const handlePrevImage = (projectIndex: number) => {
-		setCurrentImage((prev) => ({
+		setCurrentImage(prev => ({
 			...prev,
 			[projectIndex]:
 				(prev[projectIndex] ?? 0) === 0
@@ -49,7 +49,7 @@ export default function ProjectsSection() {
 						key={index}
 						className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start"
 					>
-						{/* Image Panel (LEFT) */}
+						{/* Image Panel */}
 						<div className="relative col-span-1 md:col-span-5 h-56 md:h-[320px] lg:h-[360px] rounded-xl overflow-hidden shadow-xl">
 							<img
 								src={project.images[imageIndex]}
@@ -76,7 +76,7 @@ export default function ProjectsSection() {
 							)}
 						</div>
 
-						{/* Content Panel (RIGHT – Larger) */}
+						{/* Content Panel */}
 						<GlassCard className="col-span-1 md:col-span-7 flex flex-col gap-6 p-8 md:p-10 lg:p-12">
 							<h2 className="text-3xl md:text-4xl font-bold text-white">
 								{project.title}
@@ -87,13 +87,13 @@ export default function ProjectsSection() {
 							</p>
 
 							{/* Challenges */}
-							{project.challenge?.length > 0 && (
+							{(project.challenge ?? []).length > 0 && (
 								<div>
 									<h3 className="text-lg font-semibold text-cyan-400 mb-2">
 										Challenges
 									</h3>
 									<ul className="space-y-2">
-										{project.challenge.map((item, i) => (
+										{project.challenge?.map((item, i) => (
 											<li
 												key={i}
 												className="text-gray-300 flex items-start gap-2"
@@ -107,13 +107,13 @@ export default function ProjectsSection() {
 							)}
 
 							{/* Solutions */}
-							{project.solution?.length > 0 && (
+							{(project.solution ?? []).length > 0 && (
 								<div>
 									<h3 className="text-lg font-semibold text-green-400 mb-2">
 										Solutions
 									</h3>
 									<ul className="space-y-3">
-										{project.solution.map((item, i) => (
+										{project.solution?.map((item, i) => (
 											<li
 												key={i}
 												className="text-gray-300 flex items-start gap-3"
@@ -143,6 +143,7 @@ export default function ProjectsSection() {
 								<a
 									href={project.githubLink}
 									target="_blank"
+									rel="noopener noreferrer"
 									className="flex items-center gap-2 text-white/90 hover:text-cyan-400 transition font-medium"
 								>
 									<Github size={20} /> Code
@@ -152,6 +153,7 @@ export default function ProjectsSection() {
 									<a
 										href={project.liveDemoLink}
 										target="_blank"
+										rel="noopener noreferrer"
 										className="flex items-center gap-2 text-white/90 hover:text-green-400 transition font-medium"
 									>
 										<ExternalLink size={20} /> Live
