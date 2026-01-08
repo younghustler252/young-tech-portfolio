@@ -22,19 +22,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative overflow-x-hidden`}
+      >
         {/* Particles Background */}
         <ParticlesBackground />
 
-        {/* Navbar + Content */}
-        <Navbar />
-        {children}
-        <Footer />
+        {/* Foreground Content */}
+        <div className="relative z-10">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

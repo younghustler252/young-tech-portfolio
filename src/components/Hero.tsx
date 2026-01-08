@@ -41,7 +41,7 @@ function SocialIcons() {
 
 export default function Hero({ headlines, description, profileImage }: HeroProps) {
 	return (
-		<section className="min-h-screen px-6 md:px-20 pt-32 bg-black flex flex-col justify-center">
+		<section className="min-h-screen px-6 md:px-20 pt-32 flex flex-col justify-center">
 			
 			{/* Headline */}
 			<div className="text-center mb-12">
@@ -64,8 +64,8 @@ export default function Hero({ headlines, description, profileImage }: HeroProps
 
 					{/* CTAs */}
 					<div className="flex items-center gap-4 flex-wrap">
-						<a
-							href="#projects"
+						<Link
+							href="/projects"
 							className="
 								inline-flex items-center gap-2 px-8 py-3
 								border border-blue-400/40
@@ -79,7 +79,7 @@ export default function Hero({ headlines, description, profileImage }: HeroProps
 						>
 							View Projects
 							<ArrowUpRight size={20} />
-						</a>
+						</Link>
 
 						<Link
 							href="/contact"

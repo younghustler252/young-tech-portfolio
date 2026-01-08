@@ -8,6 +8,7 @@ export default function ProjectSection() {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const [prevIndex, setPrevIndex] = useState<number | null>(null)
 
+	// Slide carousel interval (runs once)
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setPrevIndex(currentIndex)
@@ -29,27 +30,29 @@ export default function ProjectSection() {
 
 			<div className="relative h-[520px] md:h-[480px] rounded-2xl overflow-hidden">
 				{projects.map((project, index) => {
-					let position = "translate-x-full opacity-0 z-0" // default hidden right
+					// Render only current + previous slide for performance
+					if (index !== currentIndex && index !== prevIndex) return null
 
+					let position = "translate-x-full opacity-0 z-0" // hidden right
 					if (index === currentIndex) position = "translate-x-0 opacity-100 z-20" // center
-					else if (index === prevIndex) position = "-translate-x-full opacity-0 z-10" // left slide out
+					else if (index === prevIndex) position = "-translate-x-full opacity-0 z-10" // slide out left
 
 					return (
 						<div
 							key={index}
-							className={`absolute inset-0 transition-all duration-[1000ms] ease-in-out ${position}`}
+							className={`absolute inset-0 transition-transform transition-opacity duration-[1000ms] ease-in-out ${position}`}
 						>
 							<div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg">
-								{/* Show only the first image */}
 								<img
 									src={project.images[0]}
 									alt={project.title}
 									className="w-full h-full object-cover brightness-90"
+									loading="lazy"
 								/>
 
 								<div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
-								<div className="absolute bottom-8 left-8 max-w-xl p-6 rounded-lg bg-black/30 backdrop-blur-md border border-white/20 shadow-[0_0_40px_rgba(34,211,238,0.3)] transition-transform duration-300 hover:translate-x-1 hover:translate-y-1">
+								<div className="absolute bottom-8 left-8 max-w-xl p-6 rounded-lg bg-black/30 backdrop-blur-md border border-white/20 shadow-lg transition-transform duration-300 hover:translate-x-1 hover:translate-y-1">
 									<h3 className="text-3xl font-bold text-white mb-3">{project.title}</h3>
 									<p className="text-gray-200 mb-4 leading-relaxed">{project.description}</p>
 
