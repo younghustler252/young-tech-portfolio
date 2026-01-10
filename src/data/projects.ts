@@ -25,8 +25,8 @@ export const projects: Project[] = [
       "Structured content with semantic HTML and accessibility in mind, ensuring an optimal experience across devices.",
     ],
     techStacks: ["React", "Next.js", "Tailwind CSS", "TypeScript"],
-    githubLink: "https://github.com/yourusername/portfolio",
-    liveDemoLink: "https://yourusername.github.io/portfolio",
+    githubLink: "https://github.com/younghustler252/young-tech-portfolio",
+    liveDemoLink: "https://young-tech-portfolio.netlify.app",
     images: [
       "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
     ],

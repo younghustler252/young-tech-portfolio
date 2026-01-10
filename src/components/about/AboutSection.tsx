@@ -33,7 +33,7 @@ export default function AboutSection() {
 				{/* Image */}
 				<div className="flex-shrink-0">
 					<img
-						src="https://i.pinimg.com/736x/7b/34/8e/7b348e78b1f662ebcb28063a99b7057d.jpg"
+						src="/young-image.jpeg"
 						alt="Young Tech"
 						className="
 							w-56 h-72 object-cover

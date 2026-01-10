@@ -27,10 +27,20 @@ export default function Navbar() {
 		>
 			<div className="max-w-7xl mx-auto px-10 py-5 flex items-center justify-between">
 				
-				{/* Logo / Name (UNCHANGED) */}
-				<h1 className="text-white font-semibold tracking-wide">
-					My Portfolio
+				<h1
+					className="
+						text-xl font-bold tracking-wide
+						bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-300
+						bg-clip-text text-transparent
+						neon-text
+						drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]
+						hover:drop-shadow-[0_0_20px_rgba(34,211,238,0.9)]
+						transition
+					"
+				>
+					Young Tech
 				</h1>
+
 
 				{/* Desktop Links (UNCHANGED) */}
 				<div className="hidden md:flex gap-6">

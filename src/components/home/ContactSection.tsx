@@ -2,6 +2,7 @@
 
 import { FileText, MessageCircle } from "lucide-react"
 import GlassCard from "@/components/GlassCard"
+import Link from "next/link"
 
 export default function ContactSection() {
 	return (
@@ -23,7 +24,7 @@ export default function ContactSection() {
 				<div className="flex flex-col sm:flex-row gap-4 mt-6">
 					{/* Resume */}
 					<a
-						href="/resume.pdf"
+						href="\Bodede_Sodiq_Resume.pdf"
 						target="_blank"
 						className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/30 text-white font-medium backdrop-blur-sm hover:border-cyan-400 hover:text-cyan-400 transition"
 					>
@@ -32,13 +33,13 @@ export default function ContactSection() {
 					</a>
 
 					{/* Contact */}
-					<a
+					<Link
 						href="/contact"
 						className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-green-400 text-black font-semibold hover:opacity-90 transition shadow-lg"
 					>
 						<MessageCircle size={20} />
 						Start a Conversation
-					</a>
+					</Link>
 				</div>
 			</GlassCard>
 		</section>
