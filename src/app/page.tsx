@@ -1,20 +1,25 @@
-import Hero from "@/components/Hero";
-import ProjectSection from "@/components/home/ProjectSection";
-import SkillsSection from "@/components/home/SkillSection";
-import ContactSection from "@/components/home/ContactSection";
-// import profilePic from "@/public/profile.jpg"; 
+import { Hero } from "@/components/sections/hero"
+import { Philosophy } from "@/components/sections/philosophy"
+import { Layers } from "@/components/sections/layers"
+import { FeaturedWork } from "@/components/sections/featured-work"
+import { EngineeringTeaser } from "@/components/sections/engineering-teaser"
+import { Journey } from "@/components/sections/journey"
+import { Skills } from "@/components/sections/skills"
+import { JournalTeaser } from "@/components/sections/journal-teaser"
+import { CTA } from "@/components/sections/cta"
 
 export default function Home() {
-  return (
-    <main>
-      <Hero
-        headlines={["Fullstack Web Developer", "MERN Specialist", "React & Next.js Enthusiast"]}
-        description="I build modern, fast, and responsive web applications using Next.js, React, and Tailwind CSS."
-        profileImage="/logo.jpg" // make sure image is in public folder
-      />
-      <SkillsSection />
-      <ProjectSection />
-      <ContactSection />
-    </main>
-  );
+	return (
+		<main>
+			<Hero />
+			<Philosophy />
+			<Layers />
+			<FeaturedWork />
+			<EngineeringTeaser />
+			<Journey />
+			<Skills />
+			<JournalTeaser />
+			<CTA />
+		</main>
+	)
 }
