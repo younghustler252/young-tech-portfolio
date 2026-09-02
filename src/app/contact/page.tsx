@@ -1,166 +1,139 @@
-"use client";
-
-import { useState } from "react";
+import type { Metadata } from "next";
+import Link from "next/link";
 import {
-	Mail,
-	Phone,
-	Github,
-	Linkedin,
-	FileText,
-	MessageCircle,
+    MessageCircle,
+    Phone,
+    type LucideIcon,
 } from "lucide-react";
 
-import GlassCard from "@/components/GlassCard";
-import SocialLink from "@/components/SocialLink";
+import { socialsConfig } from "@/config/socials";
+import { Section, SectionHeading } from "@/components/layout/section";
+import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+    title: "Contact Young Tech — Let's Build Something",
+    description:
+        "Get in touch with Young Tech about full-stack web applications, APIs, databases, authentication, integrations and infrastructure work.",
+    openGraph: {
+        title: "Contact Young Tech — Let's Build Something",
+        description:
+            "Have a problem worth building? Let's turn the idea into something real.",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Contact Young Tech — Let's Build Something",
+        description:
+            "Have a problem worth building? Let's turn the idea into something real.",
+    },
+};
+
+const socialIcons: Record<string, LucideIcon> = {
+    // Github,
+    // LinkedIn,
+    MessageCircle,
+    Phone,
+};
+
+const socials = Object.values(socialsConfig);
 
 export default function ContactPage() {
-	const [form, setForm] = useState({
-		name: "",
-		email: "",
-		message: "",
-	});
+    return (
+        <div>
+            <Section className="hero-glow border-t-0">
+                <SectionHeading
+                    eyebrow="Contact"
+                    title="Have a problem worth building?"
+                    subtitle="Let's turn the idea into something real. Whether it's a full product, a backend that needs designing, or an existing system that needs to work properly — start the conversation."
+                />
 
-	function handleSubmit(e: React.FormEvent) {
-		e.preventDefault();
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <Button
+                        size="lg"
+						nativeButton={false}
+                        render={
+                            <Link href="#channels">
+                                Start a conversation
+                            </Link>
+                        }
+                    />
 
-		const whatsappMessage = `
-Hello 👋
+                    <Button
+                        size="lg"
+                        variant="outline"
+						nativeButton={false}
+                        render={
+                            <Link href="/work">
+                                View my work
+                            </Link>
+                        }
+                    />
+                </div>
+            </Section>
 
-You have a new message from your portfolio:
+            <Section id="channels">
+                <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+                    <div>
+                        <h2 className="font-mono text-[11px] tracking-[0.2em] text-accent uppercase">
+                            Channels
+                        </h2>
 
-👤 Name: ${form.name}
-📧 Email: ${form.email}
+                        <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
+                            Choose a channel below and let's start the
+                            conversation.
+                        </p>
+                    </div>
 
-💬 Message:
-${form.message}
-		`;
+                    <ul className="grid gap-3 sm:grid-cols-2">
+                        {socials.map((social) => {
+                            const Icon =
+                                socialIcons[social.icon] ?? MessageCircle;
 
-		const encodedMessage = encodeURIComponent(whatsappMessage);
+                            return (
+                                <li key={social.label}>
+                                    <Link
+                                        href={social.url}
+                                        target={
+                                            social.url.startsWith("http")
+                                                ? "_blank"
+                                                : undefined
+                                        }
+                                        rel={
+                                            social.url.startsWith("http")
+                                                ? "noreferrer"
+                                                : undefined
+                                        }
+                                        className="surface-card group flex items-center gap-4 rounded-xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/50"
+                                    >
+                                        <span className="grid size-10 shrink-0 place-items-center rounded-lg border border-border bg-surface-2/60 text-muted-foreground transition-colors group-hover:border-accent/40 group-hover:bg-accent-soft group-hover:text-accent">
+                                            <Icon
+                                                className="size-[18px]"
+                                                aria-hidden
+                                            />
+                                        </span>
 
-		window.open(
-			`https://wa.me/2348080061178?text=${encodedMessage}`,
-			"_blank"
-		);
+                                        <div>
+                                            <p className="font-display text-base font-semibold">
+                                                {social.label}
+                                            </p>
 
-		setForm({ name: "", email: "", message: "" });
-	}
-
-	return (
-		<section className="px-4 sm:px-6 md:px-10 py-24 max-w-6xl mx-auto">
-			{/* Heading */}
-			<div className="mb-16">
-				<h1 className="text-5xl font-bold text-white mb-4">
-					Let’s Collaborate
-				</h1>
-				<p className="text-gray-400 max-w-2xl leading-relaxed">
-					Open to new opportunities, freelance work, and meaningful
-					collaborations. Let’s build something impactful together.
-				</p>
-			</div>
-
-			{/* Cards */}
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-				{/* LEFT — Quick Connect */}
-				<div>
-					<p className="text-cyan-400 font-medium mb-4">
-						Quick ways to reach me
-					</p>
-
-					<GlassCard className="p-8 flex flex-col gap-6">
-						<h2 className="text-xl font-semibold text-white">
-							Quick Connect
-						</h2>
-
-						<div className="flex items-center gap-4 text-gray-300">
-							<Mail className="text-cyan-400" />
-							<span>younghustler252@gmail.com</span>
-						</div>
-
-						<div className="flex items-center gap-4 text-gray-300">
-							<Phone className="text-cyan-400" />
-							<span>+234 808 006 1178</span>
-						</div>
-
-						<div className="mt-2">
-							<span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm bg-green-500/10 text-green-400 border border-green-500/30">
-								● Open to new opportunities
-							</span>
-						</div>
-
-						<hr className="border-white/10 my-2" />
-
-						<div className="flex items-center gap-6">
-							<SocialLink
-								href="https://github.com/younghustler252"
-								icon={<Github size={22} />}
-							/>
-							<SocialLink
-								href="https://linkedin.com/in/bodede-sodiq-365790335"
-								icon={<Linkedin size={22} />}
-							/>
-						</div>
-
-						<SocialLink
-							href="/Bodede_Sodiq_Resume.pdf"
-							icon={<FileText size={22} />}
-							label="Download Resume"
-						/>
-					</GlassCard>
-				</div>
-
-				{/* RIGHT — WhatsApp Form */}
-				<GlassCard className="p-8">
-					<h2 className="text-xl font-semibold text-white mb-6">
-						Send a Message
-					</h2>
-
-					<form
-						onSubmit={handleSubmit}
-						className="flex flex-col gap-5"
-					>
-						<input
-							type="text"
-							placeholder="Your name"
-							required
-							value={form.name}
-							onChange={(e) =>
-								setForm({ ...form, name: e.target.value })
-							}
-							className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400"
-						/>
-
-						<input
-							type="email"
-							placeholder="Your email"
-							required
-							value={form.email}
-							onChange={(e) =>
-								setForm({ ...form, email: e.target.value })
-							}
-							className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400"
-						/>
-
-						<textarea
-							placeholder="Tell me about your idea..."
-							rows={5}
-							required
-							value={form.message}
-							onChange={(e) =>
-								setForm({ ...form, message: e.target.value })
-							}
-							className="bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 resize-none"
-						/>
-
-						<button
-							type="submit"
-							className="mt-2 flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-green-400 to-cyan-500 text-black font-semibold hover:opacity-90 transition shadow-lg"
-						>
-							<MessageCircle size={20} />
-							Chat on WhatsApp
-						</button>
-					</form>
-				</GlassCard>
-			</div>
-		</section>
-	);
+                                            <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+                                                {social.url.startsWith("http")
+                                                    ? "Open channel"
+                                                    : social.url.startsWith(
+                                                            "tel:",
+                                                        )
+                                                      ? "Call directly"
+                                                      : "Contact directly"}
+                                            </p>
+                                        </div>
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </Section>
+        </div>
+    );
 }

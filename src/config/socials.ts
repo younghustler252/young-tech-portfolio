@@ -1,50 +1,24 @@
+
+
 export const socialsConfig = {
 	github: {
 		label: "GitHub",
-		username: "yourusername",
-		url: "https://github.com/yourusername",
+		url: "https://github.com/younghustler252",
+		icon: "Github",
 	},
-
 	linkedin: {
 		label: "LinkedIn",
-		username: "yourusername",
-		url: "https://linkedin.com/in/yourusername",
+		url: "https://www.linkedin.com/in/bodede-sodiq-365790335",
+		icon: "LinkedIn",
 	},
-
-    x: {
-        label: "X",
-        username: "@yourusername",
-        url: "",
-    },
-    
-	fiverr: {
-		label: "Fiverr",
-		username: "yourusername",
-		url: "https://www.fiverr.com/yourusername",
+	whatsapp: {
+		label: "WhatsApp",
+		url: "https://wa.me/2348080061178",
+		icon: "MessageCircle",
 	},
-
-	freelancer: {
-		label: "Freelancer",
-		username: "yourusername",
-		url: "https://www.freelancer.com/u/yourusername",
+	phone: {
+		label: "Call",
+		url: "tel:+2348080061178",
+		icon: "Phone",
 	},
-
-	truelancer: {
-		label: "Truelancer",
-		username: "yourusername",
-		url: "https://www.truelancer.com/freelancer/yourusername",
-	},
-
-	tiktok: {
-		label: "TikTok",
-		username: "@yourusername",
-		url: "",
-	},
-
-	instagram: {
-		label: "Instagram",
-		username: "@yourusername",
-		url: "",
-	},
-
-} as const;
+};
