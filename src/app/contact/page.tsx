@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import type { ComponentType, SVGProps } from "react";
 
-import {
-    MessageCircle,
-    Phone,
-} from "lucide-react";
-
+import { MessageCircle, Phone } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import { socialsConfig } from "@/config/socials";
@@ -35,8 +31,8 @@ const socialIcons: Record<
     string,
     ComponentType<SVGProps<SVGSVGElement>>
 > = {
-    github: FaGithub,
-    linkedin: FaLinkedin,
+    Github: FaGithub,
+    LinkedIn: FaLinkedin,
     MessageCircle,
     Phone,
 };
@@ -56,7 +52,7 @@ export default function ContactPage() {
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <Button
                         size="lg"
-						nativeButton={false}
+                        nativeButton={false}
                         render={
                             <Link href="#channels">
                                 Start a conversation
@@ -67,7 +63,7 @@ export default function ContactPage() {
                     <Button
                         size="lg"
                         variant="outline"
-						nativeButton={false}
+                        nativeButton={false}
                         render={
                             <Link href="/work">
                                 View my work
@@ -123,15 +119,23 @@ export default function ContactPage() {
                                                 {social.label}
                                             </p>
 
-                                            <p className="mt-1 font-mono text-[11px] text-muted-foreground">
-                                                {social.url.startsWith("http")
-                                                    ? "Open channel"
-                                                    : social.url.startsWith(
-                                                            "tel:",
-                                                        )
-                                                      ? "Call directly"
-                                                      : "Contact directly"}
-                                            </p>
+                                            {social.username ? (
+                                                <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+                                                    @{social.username}
+                                                </p>
+                                            ) : (
+                                                <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+                                                    {social.url.startsWith(
+                                                        "tel:",
+                                                    )
+                                                        ? "Call directly"
+                                                        : social.url.startsWith(
+                                                                "http",
+                                                            )
+                                                          ? "Open channel"
+                                                          : "Contact directly"}
+                                                </p>
+                                            )}
                                         </div>
                                     </Link>
                                 </li>
