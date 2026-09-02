@@ -117,6 +117,7 @@ export default function AboutPage() {
                         <div className="mt-8">
                             <Button
                                 size="lg"
+                                nativeButton={false}
                                 render={
                                     <Link href={profileConfig.resume}>
                                         View resume
@@ -190,6 +191,7 @@ export default function AboutPage() {
                         <Button
                             variant="outline"
                             size="lg"
+                            nativeButton={false}
                             render={
                                 <Link href="/lab">
                                     Visit the Lab

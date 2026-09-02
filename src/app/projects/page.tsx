@@ -1,9 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { Github, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
+import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react"
 import { projects } from "@/data/projects"
 import GlassCard from "@/components/GlassCard"
+import { FaGithub } from "react-icons/fa"
 
 export default function ProjectsSection() {
 	const [currentImage, setCurrentImage] = useState<Record<number, number>>({})
@@ -146,7 +147,7 @@ export default function ProjectsSection() {
 									rel="noopener noreferrer"
 									className="flex items-center gap-2 text-white/90 hover:text-cyan-400 transition font-medium"
 								>
-									<Github size={20} /> Code
+									<FaGithub size={20} /> Code
 								</a>
 
 								{project.liveDemoLink && (

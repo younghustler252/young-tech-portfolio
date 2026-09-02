@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { ComponentType, SVGProps } from "react";
+
 import {
     MessageCircle,
     Phone,
-    type LucideIcon,
 } from "lucide-react";
+
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import { socialsConfig } from "@/config/socials";
 import { Section, SectionHeading } from "@/components/layout/section";
@@ -28,9 +31,12 @@ export const metadata: Metadata = {
     },
 };
 
-const socialIcons: Record<string, LucideIcon> = {
-    // Github,
-    // LinkedIn,
+const socialIcons: Record<
+    string,
+    ComponentType<SVGProps<SVGSVGElement>>
+> = {
+    github: FaGithub,
+    linkedin: FaLinkedin,
     MessageCircle,
     Phone,
 };
