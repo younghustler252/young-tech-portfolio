@@ -9,7 +9,7 @@ export function Logo() {
 			href="/"
 			className="group flex items-center gap-2.5"
 		>
-			<Image
+			<img
 				src={profileConfig.logo}
 				alt={profileConfig.brand}
 				width={28}
