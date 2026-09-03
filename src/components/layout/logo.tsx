@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 
 import { profileConfig } from "@/config/profile"
-
+ 
 export function Logo() {
 	return (
 		<Link

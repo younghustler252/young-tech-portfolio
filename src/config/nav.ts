@@ -15,6 +15,10 @@ export const nav = [
 		label: "About",
 		to: "/about",
 	},
+	{
+		label: "resume",
+		to: "/resume",
+	},
     {
 		label: "Contact",
 		to: "/contact",
